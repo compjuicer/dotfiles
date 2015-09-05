@@ -18,7 +18,6 @@ local layout = {
   { key = 'pad1', location = { x = 0, y = 2} },
   { key = 'pad2', location = { x = 1, y = 2} },
   { key = 'pad3', location = { x = 2, y = 2} }
-
 }
 
 function position(location)
@@ -26,6 +25,11 @@ function position(location)
   return function()
 
     local window = window.focusedwindow()
+
+    if (window == nil) then
+      return
+    end
+
     local windowFrame = window:frame()
     local screenFrame = window:screen():frame()
 
